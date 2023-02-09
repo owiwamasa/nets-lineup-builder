@@ -4,4 +4,9 @@ const asyncHandler = (handler) => {
   };
 };
 
-module.exports = { asyncHandler };
+const mathRound = (value, precision) => {
+  const multiplier = Math.pow(10, precision);
+  return Math.round(value * multiplier) / multiplier;
+};
+
+module.exports = { asyncHandler, mathRound };
