@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "LeagueAverage",
+      "LeagueAverages",
       [
         {
           efg_pct: 53.2,
@@ -22,6 +22,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("LeagueAverage", null, {});
+    await queryInterface.bulkDelete("LeagueAverages", null, {});
   },
 };
