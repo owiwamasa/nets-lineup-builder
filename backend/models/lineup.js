@@ -1,11 +1,12 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class LeagueAverage extends Model {
+  class Lineup extends Model {
     static associate(models) {}
   }
-  LeagueAverage.init(
+  Lineup.init(
     {
+      lineup_code: DataTypes.STRING,
       efg_pct: DataTypes.FLOAT(1),
       fg_pct: DataTypes.FLOAT(1),
       three_pt_pct: DataTypes.FLOAT(1),
@@ -15,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "LeagueAverage",
+      modelName: "Lineup",
     }
   );
-  return LeagueAverage;
+  return Lineup;
 };
