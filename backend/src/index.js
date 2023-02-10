@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const playerRouter = require("./routes/players");
 const leagueAverageRouter = require("./routes/leagueAverages");
 const shotRouter = require("./routes/shots");
@@ -7,6 +8,7 @@ require("dotenv").config();
 
 const app = express();
 
+app.use(cors());
 app.use("/players", playerRouter);
 app.use("/leagueAverages", leagueAverageRouter);
 app.use("/shots", shotRouter);
