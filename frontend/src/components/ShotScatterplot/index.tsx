@@ -7,7 +7,7 @@ interface Props {
   selectedPlayers: PlayerType[];
 }
 
-const ShotScatterplot = ({ selectedPlayers }: Props) => {
+const ShotScatterPlot = ({ selectedPlayers }: Props) => {
   const [madeShots, setMadeShots] = useState();
   const [missedShots, setMissedShots] = useState();
 
@@ -48,7 +48,7 @@ const ShotScatterplot = ({ selectedPlayers }: Props) => {
         .attr("cx", (d: any) => xScale(d.loc_x))
         .attr("cy", (d: any) => yScale(d.loc_y))
         .attr("r", 3)
-        .style("fill", "#39ff14 ");
+        .style("fill", "#39ff14");
       svg
         .append("g")
         .selectAll("dot")
@@ -64,4 +64,4 @@ const ShotScatterplot = ({ selectedPlayers }: Props) => {
   return <svg ref={svgRef} />;
 };
 
-export default ShotScatterplot;
+export default ShotScatterPlot;

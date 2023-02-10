@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import { PlayerType } from "./models";
 import PlayerSelectorSidebar from "./components/PlayerSelectorSidebar";
 import SelectedPlayers from "./components/SelectedPlayers";
-import CourtSvg from "./components/CourtSvg";
+import ShotChart from "./components/ShotChart";
 
 const AppContainer = styled(Box)(() => ({
   display: "flex",
@@ -12,6 +12,8 @@ const AppContainer = styled(Box)(() => ({
 }));
 
 const MainContentContainer = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
   margin: "0 60px",
   width: "70%",
 }));
@@ -47,7 +49,7 @@ const App = () => {
           selectedPlayers={selectedPlayers}
           setSelectedPlayers={setSelectedPlayers}
         />
-        <CourtSvg selectedPlayers={selectedPlayers} />
+        <ShotChart selectedPlayers={selectedPlayers} />
       </MainContentContainer>
     </AppContainer>
   );
