@@ -4,10 +4,13 @@ const playerRouter = require("./routes/players");
 const leagueAverageRouter = require("./routes/leagueAverages");
 const shotRouter = require("./routes/shots");
 const lineupRouter = require("./routes/lineups");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors());
 app.use("/players", playerRouter);
 app.use("/leagueAverages", leagueAverageRouter);

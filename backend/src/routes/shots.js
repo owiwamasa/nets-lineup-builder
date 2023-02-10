@@ -9,12 +9,22 @@ router.post(
   "/",
   asyncHandler(async (req, res) => {
     const { playerIds } = req.body;
-    const shots = await Shot.findAll({
+    const madeShots = await Shot.findAll({
       where: {
         player_nba_id: playerIds,
+        shot_made_flag: 1,
       },
     });
-    res.send(shots);
+    const missedShots = await Shot.findAll({
+      where: {
+        player_nba_id: playerIds,
+        shot_made_flag: 0,
+      },
+    });
+    res.send({
+      madeShots: madeShots.map((shot) => shot.dataValues),
+      missedShots: missedShots.map((shot) => shot.dataValues),
+    });
   })
 );
 

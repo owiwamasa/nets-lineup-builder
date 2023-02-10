@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import PlayerSelectorSidebar from "./components/PlayerSelectorSidebar";
-import SelectedPlayers from "./components/SelectedPlayers";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { PlayerType } from "./models";
+import PlayerSelectorSidebar from "./components/PlayerSelectorSidebar";
+import SelectedPlayers from "./components/SelectedPlayers";
+import CourtSvg from "./components/CourtSvg";
 
 const AppContainer = styled(Box)(() => ({
   display: "flex",
@@ -46,6 +47,7 @@ const App = () => {
           selectedPlayers={selectedPlayers}
           setSelectedPlayers={setSelectedPlayers}
         />
+        <CourtSvg selectedPlayers={selectedPlayers} />
       </MainContentContainer>
     </AppContainer>
   );
