@@ -9,7 +9,7 @@ import { styled } from "@mui/system";
 
 const PlayerSelectorSidebarContainer = styled(Box)(() => ({
   backgroundColor: "#262626",
-  width: "450px",
+  width: "30%",
   height: "100vh",
   position: "sticky",
   top: 0,
@@ -25,6 +25,19 @@ const LogoContainer = styled(Box)(() => ({
 }));
 
 const MenuContainer = styled(Box)(() => ({
+  height: "85%",
+}));
+
+const MenuTitle = styled(Typography)(() => ({
+  color: "white",
+  fontFamily: "Arial",
+  fontSize: "30px",
+  boxSizing: "border-box",
+  height: "13%",
+  padding: "40px 0 0 65px",
+}));
+
+const PlayerScrollContainer = styled(Box)(() => ({
   height: "87%",
   overflowY: "scroll",
 }));
@@ -37,6 +50,19 @@ const PlayerSelectButton = styled(Button)(() => ({
   "&:hover": {
     backgroundColor: "#4E4E4E",
   },
+}));
+
+const ButtonContentContainer = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+}));
+
+const PlayerName = styled(Typography)(() => ({
+  color: "white",
+  textTransform: "capitalize",
+  fontFamily: "Arial",
+  fontSize: "26px",
+  whiteSpace: "nowrap",
 }));
 
 const CircularImageContainer = styled(Box)(() => ({
@@ -52,8 +78,8 @@ const CircularImageContainer = styled(Box)(() => ({
 }));
 
 interface Props {
-  selectedPlayers: number[];
-  setSelectedPlayers: React.Dispatch<React.SetStateAction<number[]>>;
+  selectedPlayers: PlayerType[];
+  setSelectedPlayers: React.Dispatch<React.SetStateAction<PlayerType[]>>;
 }
 
 const PlayerSelectorSidebar = ({
@@ -68,15 +94,19 @@ const PlayerSelectorSidebar = ({
     });
   }, []);
 
-  const addOrRemoveSelectedPlayers = (nba_id: number) => {
-    if (selectedPlayers.includes(nba_id)) {
+  const addOrRemoveSelectedPlayerIds = (player: PlayerType) => {
+    if (
+      selectedPlayers.some(
+        (selectedPlayer) => selectedPlayer.nba_id === player.nba_id
+      )
+    ) {
       setSelectedPlayers(
         selectedPlayers.filter(
-          (selectedPlayerId) => selectedPlayerId !== nba_id
+          (selectedPlayer) => selectedPlayer.nba_id !== player.nba_id
         )
       );
     } else {
-      setSelectedPlayers([...selectedPlayers, nba_id]);
+      setSelectedPlayers([...selectedPlayers, player]);
     }
   };
 
@@ -90,37 +120,22 @@ const PlayerSelectorSidebar = ({
           height="auto"
         />
       </LogoContainer>
-      <Box sx={{ height: "85%" }}>
-        <Typography
-          sx={{
-            color: "white",
-            fontFamily: "Arial",
-            fontSize: "30px",
-            boxSizing: "border-box",
-            height: "13%",
-            padding: "40px 0 0 65px",
-          }}
-        >
-          Add Players
-        </Typography>
-        <MenuContainer>
+      <MenuContainer>
+        <MenuTitle>Add Players</MenuTitle>
+        <PlayerScrollContainer>
           {players &&
             players.map((player) => (
               <PlayerSelectButton
                 disableRipple
                 key={player.nba_id}
-                onClick={() => addOrRemoveSelectedPlayers(player.nba_id)}
+                onClick={() => addOrRemoveSelectedPlayerIds(player)}
                 disabled={
-                  !selectedPlayers.includes(player.nba_id) &&
-                  selectedPlayers.length === 5
+                  !selectedPlayers.some(
+                    (selectedPlayer) => selectedPlayer.nba_id === player.nba_id
+                  ) && selectedPlayers.length === 5
                 }
               >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
+                <ButtonContentContainer>
                   <CircularImageContainer>
                     <img
                       src={player.image}
@@ -129,28 +144,19 @@ const PlayerSelectorSidebar = ({
                       height="50px"
                     />
                   </CircularImageContainer>
-                  <Typography
-                    sx={{
-                      color: "white",
-                      textTransform: "capitalize",
-                      fontFamily: "Arial",
-                      fontSize: "26px",
-                    }}
-                  >
-                    {player.display_name}
-                  </Typography>
-                </Box>
-                {selectedPlayers.includes(player.nba_id) ? (
-                  <RemoveIcon
-                    sx={{ color: "white", justifySelf: "flex-end" }}
-                  />
+                  <PlayerName>{player.display_name}</PlayerName>
+                </ButtonContentContainer>
+                {selectedPlayers.some(
+                  (selectedPlayer) => selectedPlayer.nba_id === player.nba_id
+                ) ? (
+                  <RemoveIcon sx={{ color: "white" }} />
                 ) : (
-                  <AddIcon sx={{ color: "white", justifySelf: "flex-end" }} />
+                  <AddIcon sx={{ color: "white" }} />
                 )}
               </PlayerSelectButton>
             ))}
-        </MenuContainer>
-      </Box>
+        </PlayerScrollContainer>
+      </MenuContainer>
     </PlayerSelectorSidebarContainer>
   );
 };
