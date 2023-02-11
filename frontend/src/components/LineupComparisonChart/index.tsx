@@ -14,6 +14,8 @@ import {
 import { PlayerType, LineupComparisonType } from "../../models";
 import CustomBarLabel from "./CustomBarLabel";
 import CustomToolTip from "./CustomToolTip";
+import { InfoText } from "../ShotChart";
+import { CircularImageContainer } from "../PlayerSelectorSidebar";
 
 const LineupComparisonContainer = styled(Box)(() => ({
   display: "flex",
@@ -34,10 +36,22 @@ const ChartContainer = styled(Box)(() => ({
   marginTop: "16px",
   border: "1px solid #FFFFFF",
   borderRadius: "20px",
-  padding: "60px 40px",
+  padding: "40px 40px",
   boxSizing: "border-box",
 }));
 
+const LineupContainer = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-around",
+  width: "850",
+  marginBottom: "30px",
+}));
+
+const PlayerContainer = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+}));
 interface Props {
   selectedPlayers: PlayerType[];
 }
@@ -58,8 +72,34 @@ const LineupComparisonChart = ({ selectedPlayers }: Props) => {
 
   return (
     <LineupComparisonContainer>
-      <ChartTitle>Lineup Statistics (Compared to League Average)</ChartTitle>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+        }}
+      >
+        <ChartTitle>Projected Lineup Statistics </ChartTitle>
+        <InfoText>* Compared to 2021-22 Regular Season League Average</InfoText>
+      </Box>
       <ChartContainer>
+        <LineupContainer>
+          {selectedPlayers.map((player) => (
+            <PlayerContainer>
+              <CircularImageContainer>
+                <img
+                  src={player.image}
+                  alt="Player profile"
+                  width="70px"
+                  height="auto"
+                />
+              </CircularImageContainer>
+              <Typography sx={{ color: "white" }}>
+                {player.display_name}
+              </Typography>
+            </PlayerContainer>
+          ))}
+        </LineupContainer>
         <BarChart
           data={chartData}
           width={850}
@@ -81,6 +121,11 @@ const LineupComparisonChart = ({ selectedPlayers }: Props) => {
           </ReferenceLine>
         </BarChart>
       </ChartContainer>
+      <InfoText>
+        * FG - Field Goal | 3pt - 3 point | EFG - Effective Field Goal | Assists
+        per 100 - Assists per 100 Possessions | Off Rating - Offensive Rating |
+        Def Rating - Defensive Rating
+      </InfoText>
     </LineupComparisonContainer>
   );
 };

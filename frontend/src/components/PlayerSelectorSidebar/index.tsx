@@ -63,9 +63,10 @@ const PlayerName = styled(Typography)(() => ({
   fontFamily: "Arial",
   fontSize: "26px",
   whiteSpace: "nowrap",
+  marginLeft: "30px",
 }));
 
-const CircularImageContainer = styled(Box)(() => ({
+export const CircularImageContainer = styled(Box)(() => ({
   borderRadius: "50%",
   width: "55px",
   height: "55px",
@@ -74,7 +75,6 @@ const CircularImageContainer = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "flex-end",
-  marginRight: "30px",
 }));
 
 interface Props {
@@ -140,8 +140,8 @@ const PlayerSelectorSidebar = ({
                     <img
                       src={player.image}
                       alt="Player profile"
-                      width="75px"
-                      height="50px"
+                      width="70px"
+                      height="auto"
                     />
                   </CircularImageContainer>
                   <PlayerName>{player.display_name}</PlayerName>

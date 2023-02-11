@@ -6,6 +6,10 @@ const ToolTipContainer = styled(Box)(() => ({
   backgroundColor: "white",
   padding: "20px",
   borderRadius: "8px",
+  height: "90px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
 }));
 
 interface CustomToolTipProps {
@@ -22,15 +26,24 @@ const CustomToolTip = ({ payload, label, active }: CustomToolTipProps) => {
       payload[0].payload.percentageComparedToLeagueAverage;
     return (
       <ToolTipContainer>
-        <Typography>{`Lineup Projection: ${lineupProjection} ${label}`}</Typography>
-        <Typography>{`League Average: ${leagueAverage} ${label}`}</Typography>
+        <Typography>
+          <strong>Lineup Projection:</strong>
+          {` ${lineupProjection} ${label}`}
+        </Typography>
+        <Typography>
+          <strong>League Average:</strong>
+          {` ${leagueAverage} ${label}`}
+        </Typography>
         <Typography
           sx={{
             color: percentageComparedToLeagueAverage > 0 ? "green" : "#ff073a",
           }}
-        >{`Compared to League Average: ${
-          percentageComparedToLeagueAverage >= 0 ? "+" : ""
-        }${percentageComparedToLeagueAverage}%`}</Typography>
+        >
+          <strong>Compared to League Average:</strong>
+          {` ${
+            percentageComparedToLeagueAverage >= 0 ? "+" : ""
+          }${percentageComparedToLeagueAverage}%`}
+        </Typography>
       </ToolTipContainer>
     );
   }

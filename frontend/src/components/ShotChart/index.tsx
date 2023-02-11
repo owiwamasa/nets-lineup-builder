@@ -29,7 +29,7 @@ const CourtSvgContainer = styled(Box)(() => ({
   alignSelf: "center",
 }));
 
-const InfoText = styled(Typography)(() => ({
+export const InfoText = styled(Typography)(() => ({
   color: "#88CBAD",
   fontFamily: "Arial",
   fontSize: "12px",
