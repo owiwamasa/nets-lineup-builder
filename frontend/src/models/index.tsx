@@ -19,32 +19,7 @@ export type ShotType = {
   updatedAt: null;
 };
 
-export type LeagueAverageType = {
-  id: number;
-  efg_pct: number;
-  fg_pct: number;
-  three_pt_pct: number;
-  off_rating: number;
-  def_rating: number;
-  ast_per_100: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
-export type LineupType = {
-  id: number;
-  lineup_code: string;
-  efg_pct: number;
-  fg_pct: number;
-  three_pt_pct: number;
-  off_rating: number;
-  def_rating: number;
-  ast_per_100: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
-export type LeagueAverageComparisonType = {
+export type LineupComparisonType = {
   name: string;
   leagueAverage: number;
   projectedLineupStats: number;

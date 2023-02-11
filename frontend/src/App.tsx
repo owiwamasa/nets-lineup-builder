@@ -5,7 +5,7 @@ import { PlayerType } from "./models";
 import PlayerSelectorSidebar from "./components/PlayerSelectorSidebar";
 import SelectedPlayers from "./components/SelectedPlayers";
 import ShotChart from "./components/ShotChart";
-import LeagueAverageComparisonChart from "./components/LeagueAverageComparisonChart";
+import LineupComparisonChart from "./components/LineupComparisonChart";
 
 const AppContainer = styled(Box)(() => ({
   display: "flex",
@@ -51,7 +51,9 @@ const App = () => {
           setSelectedPlayers={setSelectedPlayers}
         />
         <ShotChart selectedPlayers={selectedPlayers} />
-        <LeagueAverageComparisonChart selectedPlayers={selectedPlayers} />
+        {selectedPlayers.length > 0 && (
+          <LineupComparisonChart selectedPlayers={selectedPlayers} />
+        )}
       </MainContentContainer>
     </AppContainer>
   );
