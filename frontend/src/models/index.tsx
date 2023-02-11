@@ -13,6 +13,7 @@ export type ShotType = {
   id: number;
   player_nba_id: number;
   shot_type: ShotEnum;
+  shot_made_flag: number;
   loc_x: number;
   loc_y: number;
   createdAt: null;

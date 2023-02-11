@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import CircleIcon from "@mui/icons-material/Circle";
-import ShotScatterPlot from "../ShotScatterPlot";
+import ShotHexbinVisual from "../ShotHexbinVisual";
 import { PlayerType } from "../../models";
 
 const ShotChartContainer = styled(Box)(() => ({
@@ -33,13 +32,12 @@ export const InfoText = styled(Typography)(() => ({
   color: "#88CBAD",
   fontFamily: "Arial",
   fontSize: "12px",
-  marginTop: "8px",
   alignSelf: "flex-end",
 }));
 
 const LegendContainer = styled(Box)(() => ({
   display: "flex",
-  marginTop: "8px",
+  marginTop: "24px",
   alignSelf: "center",
 }));
 
@@ -47,7 +45,19 @@ const LegendText = styled(Typography)(() => ({
   color: "white",
   fontFamily: "Arial",
   fontSize: "16px",
-  marginLeft: "16px",
+  marginRight: "16px",
+}));
+
+const LegendGradient = styled(Box)(() => ({
+  height: "24px",
+  width: "300px",
+  background: "linear-gradient(to right, #222222, #39ff14)",
+}));
+
+const LegendLabelContainer = styled(Box)(() => ({
+  display: "flex",
+  width: "330px",
+  justifyContent: "space-between",
 }));
 
 interface Props {
@@ -57,7 +67,10 @@ interface Props {
 const ShotChart = ({ selectedPlayers }: Props) => {
   return (
     <ShotChartContainer>
-      <ShotChartTitle>Lineup Shot Chart</ShotChartTitle>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <ShotChartTitle>Lineup Shot Chart</ShotChartTitle>
+        <InfoText>{"* Shots taken during the 2021-22 Regular Season"}</InfoText>
+      </Box>
       <CourtSvgContainer>
         <svg width="966px" height="700px">
           <path
@@ -66,14 +79,22 @@ const ShotChart = ({ selectedPlayers }: Props) => {
             d="M 475 690 A 30 30 0 1 1 485 690 L 125 690 L 374 690 L 375 430 A 50 50 0 1 1 573 430 L 375 430 L 573 430 L 575 690 L 825 690 L 125 690 L 126 490 A 82 71 0 1 1 825 490 L 825 690 "
           ></path>
         </svg>
-        <ShotScatterPlot selectedPlayers={selectedPlayers} />
+        <ShotHexbinVisual selectedPlayers={selectedPlayers} />
       </CourtSvgContainer>
-      <InfoText>{"* Shots taken during the 2021-22 Regular Season"}</InfoText>
       <LegendContainer>
-        <CircleIcon sx={{ color: "#39ff14" }} />
-        <LegendText>Made Field Goal</LegendText>
-        <CircleIcon sx={{ color: "#ff073a", marginLeft: "48px" }} />
-        <LegendText>Missed Field Goal</LegendText>
+        <LegendText sx={{ fontSize: "18px" }}>
+          Points per Shot Attempt:
+        </LegendText>
+        <Box>
+          <LegendGradient />
+          <LegendLabelContainer>
+            <LegendText>0</LegendText>
+            <LegendText>0.5</LegendText>
+            <LegendText>1</LegendText>
+            <LegendText>1.5</LegendText>
+            <LegendText>2+</LegendText>
+          </LegendLabelContainer>
+        </Box>
       </LegendContainer>
     </ShotChartContainer>
   );

@@ -85,7 +85,7 @@ const LineupComparisonChart = ({ selectedPlayers }: Props) => {
       <ChartContainer>
         <LineupContainer>
           {selectedPlayers.map((player) => (
-            <PlayerContainer>
+            <PlayerContainer key={player.nba_id}>
               <CircularImageContainer>
                 <img
                   src={player.image}
