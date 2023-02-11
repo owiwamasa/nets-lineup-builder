@@ -95,7 +95,9 @@ const SelectedPlayers = ({ selectedPlayers, setSelectedPlayers }: Props) => {
           </PlayerCard>
         ))}
       {emptyCardCount > 0 &&
-        Array.apply(null, Array(emptyCardCount)).map(() => <EmptyCard />)}
+        Array.apply(null, Array(emptyCardCount)).map(
+          (value: null, index: number) => <EmptyCard key={index} />
+        )}
     </SelectedPlayersContainer>
   );
 };

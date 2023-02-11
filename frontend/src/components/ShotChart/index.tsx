@@ -57,7 +57,7 @@ interface Props {
 const ShotChart = ({ selectedPlayers }: Props) => {
   return (
     <ShotChartContainer>
-      <ShotChartTitle>Shot Chart for Selected Lineup</ShotChartTitle>
+      <ShotChartTitle>Lineup Shot Chart</ShotChartTitle>
       <CourtSvgContainer>
         <svg width="966px" height="700px">
           <path

@@ -5,7 +5,7 @@ const { Lineup, Player } = db;
 
 const router = express.Router();
 
-router.get(
+router.post(
   "/",
   asyncHandler(async (req, res) => {
     const { playerIds } = req.body;

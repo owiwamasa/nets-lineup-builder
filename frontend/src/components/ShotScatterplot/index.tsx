@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as d3 from "d3";
-import { PlayerType } from "../../models";
+import { PlayerType, ShotType } from "../../models";
 
 interface Props {
   selectedPlayers: PlayerType[];
 }
 
 const ShotScatterPlot = ({ selectedPlayers }: Props) => {
-  const [madeShots, setMadeShots] = useState();
-  const [missedShots, setMissedShots] = useState();
+  const [madeShots, setMadeShots] = useState<ShotType[]>();
+  const [missedShots, setMissedShots] = useState<ShotType[]>();
 
   useEffect(() => {
     const playerIds = selectedPlayers.map((player) => player.nba_id);
@@ -45,8 +45,8 @@ const ShotScatterPlot = ({ selectedPlayers }: Props) => {
         .data(madeShots)
         .enter()
         .append("circle")
-        .attr("cx", (d: any) => xScale(d.loc_x))
-        .attr("cy", (d: any) => yScale(d.loc_y))
+        .attr("cx", (d: ShotType) => xScale(d.loc_x))
+        .attr("cy", (d: ShotType) => yScale(d.loc_y))
         .attr("r", 3)
         .style("fill", "#39ff14");
       svg
@@ -55,8 +55,8 @@ const ShotScatterPlot = ({ selectedPlayers }: Props) => {
         .data(missedShots)
         .enter()
         .append("circle")
-        .attr("cx", (d: any) => xScale(d.loc_x))
-        .attr("cy", (d: any) => yScale(d.loc_y))
+        .attr("cx", (d: ShotType) => xScale(d.loc_x))
+        .attr("cy", (d: ShotType) => yScale(d.loc_y))
         .attr("r", 3)
         .style("fill", "#ff073a");
     }
