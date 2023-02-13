@@ -1,6 +1,6 @@
 import { PlayerType } from "./models";
 
-const pointsPerShotCalculation = (data: any) => {
+export const pointsPerShotCalculation = (data: any) => {
   let res: any[] = [];
   data.forEach((shots: any) => {
     let points_total = 0;
@@ -51,4 +51,22 @@ export const calculateEfgPct = (player: PlayerType) => {
   );
 };
 
-export default pointsPerShotCalculation;
+export const hexbinColorMapper = (pointsPerShot: number) => {
+  const colors = ["#FF3131", "#FFAD00", "#FFFF33", "#39ff14"];
+  let hexbinColor;
+  switch (true) {
+    case pointsPerShot < 0.5:
+      hexbinColor = colors[0];
+      break;
+    case pointsPerShot < 1:
+      hexbinColor = colors[1];
+      break;
+    case pointsPerShot < 1.5:
+      hexbinColor = colors[2];
+      break;
+    default:
+      hexbinColor = colors[3];
+      break;
+  }
+  return hexbinColor;
+};

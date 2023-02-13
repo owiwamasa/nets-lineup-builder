@@ -3,7 +3,7 @@ import axios from "axios";
 import * as D3 from "d3";
 import * as d3 from "d3-hexbin";
 import { PlayerType, ShotType } from "../../models";
-import pointsPerShotCalculation from "../../utils";
+import { pointsPerShotCalculation, hexbinColorMapper } from "../../utils";
 
 interface Props {
   selectedPlayers: PlayerType[];
@@ -36,10 +36,6 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
         .domain([-50, 340])
         .range([Number(height), 0]);
       svg.selectAll("*").remove();
-
-      const color = D3.scaleLinear<string | number>()
-        .domain([0, 2])
-        .range(["transparent", "#39ff14"]);
 
       const shotDataFormattedForHexbin: any = [];
       shots.forEach((d: ShotType) =>
@@ -82,10 +78,10 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
         })
         .attr("fill", (d: any) => {
           let pointsPerShot = d[0][2] / d.length;
-          return color(pointsPerShot);
+          return hexbinColorMapper(pointsPerShot);
         })
         .attr("stroke", "white")
-        .attr("stroke-width", "0.1");
+        .attr("stroke-width", "0.5");
     }
   }, [shots]);
   return <svg ref={svgRef} />;

@@ -48,10 +48,10 @@ const LegendText = styled(Typography)(() => ({
   marginRight: "16px",
 }));
 
-const LegendGradient = styled(Box)(() => ({
+const LegendColorsContainer = styled(Box)(() => ({
   height: "24px",
   width: "300px",
-  background: "linear-gradient(to right, #222222, #39ff14)",
+  display: "flex",
 }));
 
 const LegendLabelContainer = styled(Box)(() => ({
@@ -65,6 +65,7 @@ interface Props {
 }
 
 const ShotChart = ({ selectedPlayers }: Props) => {
+  const legendColors = ["#FF3131", "#FFAD00", "#FFFF33", "#39ff14"];
   return (
     <ShotChartContainer>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -86,7 +87,18 @@ const ShotChart = ({ selectedPlayers }: Props) => {
           Points per Shot Attempt:
         </LegendText>
         <Box>
-          <LegendGradient />
+          <LegendColorsContainer>
+            {legendColors.map((color) => (
+              <Box
+                key={color}
+                sx={{
+                  width: "25%",
+                  height: "100%",
+                  backgroundColor: color,
+                }}
+              />
+            ))}
+          </LegendColorsContainer>
           <LegendLabelContainer>
             <LegendText>0</LegendText>
             <LegendText>0.5</LegendText>
