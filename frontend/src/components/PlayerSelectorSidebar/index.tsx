@@ -6,7 +6,7 @@ import netsLogo from "../../assets/netsLogo.png";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { styled } from "@mui/system";
-import HighlightedPlayer from "../HighlightedPlayer";
+import HighlightedPlayer from "./HighlightedPlayer";
 
 const PlayerSelectorSidebarContainer = styled(Box)(() => ({
   backgroundColor: "#262626",
@@ -40,6 +40,8 @@ const MenuTitle = styled(Typography)(() => ({
 
 const PlayerScrollContainer = styled(Box)(() => ({
   height: "85%",
+  boxSizing: "border-box",
+  paddingBottom: "30px",
   overflowY: "scroll",
 }));
 

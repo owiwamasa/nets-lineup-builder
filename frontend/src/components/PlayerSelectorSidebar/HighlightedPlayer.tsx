@@ -7,6 +7,7 @@ import { calculateFgPct, calculate3ptPct, calculateEfgPct } from "../../utils";
 const HighlightedPlayerContainer = styled(Box)(() => ({
   backgroundColor: "#4E4E4E",
   height: "27%",
+  minHeight: "250px",
   boxSizing: "border-box",
   padding: "16px 40px 8px",
   borderBottom: "2px solid white",
@@ -26,6 +27,7 @@ const PlayerName = styled(Typography)(() => ({
   fontSize: "24px",
   marginTop: "16px",
   alignSelf: "center",
+  fontWeight: 700,
 }));
 
 const StatsContainer = styled(Box)(() => ({
@@ -66,6 +68,7 @@ const HighlightedPlayer = ({ highlightedPlayer }: Props) => {
     { name: "Def Rating", data: highlightedPlayer?.def_rating },
     { name: "Ast per 100", data: highlightedPlayer?.ast_per_100 },
   ];
+
   return (
     <HighlightedPlayerContainer>
       <PlayerImageNameContainer>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import ShotHexbinVisual from "../ShotHexbinVisual";
+import ShotHexbinVisual from "./ShotHexbinVisual";
 import { PlayerType } from "../../models";
 
 const ShotChartContainer = styled(Box)(() => ({
