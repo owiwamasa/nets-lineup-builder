@@ -52,7 +52,12 @@ export const calculateEfgPct = (player: PlayerType) => {
 };
 
 export const hexbinColorMapper = (pointsPerShot: number) => {
-  const colors = ["#FF3131", "#FFAD00", "#FFFF33", "#39ff14"];
+  const colors = [
+    "rgb(255,7,58, 0.9)",
+    "rgb(255, 139, 40, 0.9)",
+    "rgb(255, 255, 0, 0.9)",
+    "rgb(57, 255, 20, 0.9)",
+  ];
   let hexbinColor;
   switch (true) {
     case pointsPerShot < 0.5:

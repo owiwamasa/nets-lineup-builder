@@ -65,7 +65,12 @@ interface Props {
 }
 
 const ShotChart = ({ selectedPlayers }: Props) => {
-  const legendColors = ["#FF3131", "#FFAD00", "#FFFF33", "#39ff14"];
+  const legendColors = [
+    "rgb(255,7,58, 0.9)",
+    "rgb(255, 139, 40, 0.9)",
+    "rgb(255, 255, 0, 0.9)",
+    "rgb(57, 255, 20, 0.9)",
+  ];
   return (
     <ShotChartContainer>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>

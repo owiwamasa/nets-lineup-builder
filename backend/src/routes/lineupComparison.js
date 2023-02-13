@@ -51,10 +51,13 @@ router.post(
             100,
           1
         ),
-        three_pt_pct: mathRound(
-          (three_pt_makes_total / three_pt_attempts_total) * 100,
-          1
-        ),
+        three_pt_pct:
+          three_pt_makes_total > 0
+            ? mathRound(
+                (three_pt_makes_total / three_pt_attempts_total) * 100,
+                1
+              )
+            : 0,
         off_rating: mathRound(off_rating_sum / players.length, 0),
         def_rating: mathRound(def_rating_sum / players.length, 0),
         ast_per_100: ast_per_100_sum,
