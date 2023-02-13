@@ -6,6 +6,7 @@ import netsLogo from "../../assets/netsLogo.png";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { styled } from "@mui/system";
+import HighlightedPlayer from "../HighlightedPlayer";
 
 const PlayerSelectorSidebarContainer = styled(Box)(() => ({
   backgroundColor: "#262626",
@@ -25,7 +26,7 @@ const LogoContainer = styled(Box)(() => ({
 }));
 
 const MenuContainer = styled(Box)(() => ({
-  height: "85%",
+  height: "58%",
 }));
 
 const MenuTitle = styled(Typography)(() => ({
@@ -33,12 +34,12 @@ const MenuTitle = styled(Typography)(() => ({
   fontFamily: "Arial",
   fontSize: "30px",
   boxSizing: "border-box",
-  height: "13%",
-  padding: "40px 0 0 65px",
+  height: "15%",
+  padding: "20px 0 0 65px",
 }));
 
 const PlayerScrollContainer = styled(Box)(() => ({
-  height: "87%",
+  height: "85%",
   overflowY: "scroll",
 }));
 
@@ -87,10 +88,12 @@ const PlayerSelectorSidebar = ({
   setSelectedPlayers,
 }: Props) => {
   const [players, setPlayers] = useState<PlayerType[]>([]);
+  const [highlightedPlayer, setHighlightedPlayer] = useState<PlayerType>();
 
   useEffect(() => {
     axios.get("http://localhost:8000/players").then((res) => {
       setPlayers(res.data);
+      setHighlightedPlayer(res.data[0]);
     });
   }, []);
 
@@ -120,6 +123,7 @@ const PlayerSelectorSidebar = ({
           height="auto"
         />
       </LogoContainer>
+      <HighlightedPlayer highlightedPlayer={highlightedPlayer} />
       <MenuContainer>
         <MenuTitle>Add Players</MenuTitle>
         <PlayerScrollContainer>
@@ -129,6 +133,7 @@ const PlayerSelectorSidebar = ({
                 disableRipple
                 key={player.nba_id}
                 onClick={() => addOrRemoveSelectedPlayerIds(player)}
+                onMouseEnter={() => setHighlightedPlayer(player)}
                 disabled={
                   !selectedPlayers.some(
                     (selectedPlayer) => selectedPlayer.nba_id === player.nba_id

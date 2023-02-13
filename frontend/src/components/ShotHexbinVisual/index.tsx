@@ -41,9 +41,9 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
         .domain([0, 2])
         .range(["transparent", "#39ff14"]);
 
-      const shotDataFormatted: any = [];
+      const shotDataFormattedForHexbin: any = [];
       shots.forEach((d: ShotType) =>
-        shotDataFormatted.push([
+        shotDataFormattedForHexbin.push([
           xScale(d.loc_x),
           yScale(d.loc_y),
           d.shot_made_flag,
@@ -60,7 +60,7 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
         ]);
 
       const shotsFormattedWithPtsPerShot = pointsPerShotCalculation(
-        hexbin(shotDataFormatted)
+        hexbin(shotDataFormattedForHexbin)
       );
 
       svg

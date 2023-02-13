@@ -1,3 +1,5 @@
+import { PlayerType } from "./models";
+
 const pointsPerShotCalculation = (data: any) => {
   let res: any[] = [];
   data.forEach((shots: any) => {
@@ -17,6 +19,36 @@ const pointsPerShotCalculation = (data: any) => {
     res.push(...formattedShots);
   });
   return res;
+};
+
+const mathRound = (value: number, precision: number) => {
+  const multiplier = Math.pow(10, precision);
+  return Math.round(value * multiplier) / multiplier;
+};
+
+export const calculateFgPct = (player: PlayerType) => {
+  return mathRound(
+    ((player?.two_pt_makes + player?.three_pt_makes) /
+      (player?.three_pt_attempts + player?.two_pt_attempts)) *
+      100,
+    1
+  );
+};
+
+export const calculate3ptPct = (player: PlayerType) => {
+  return mathRound(
+    (player?.three_pt_makes / player?.three_pt_attempts) * 100,
+    1
+  );
+};
+
+export const calculateEfgPct = (player: PlayerType) => {
+  return mathRound(
+    ((player?.two_pt_makes + 1.5 * player?.three_pt_makes) /
+      (player?.three_pt_attempts + player?.two_pt_attempts)) *
+      100,
+    1
+  );
 };
 
 export default pointsPerShotCalculation;

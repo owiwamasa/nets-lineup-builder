@@ -10,7 +10,6 @@ router.get(
   asyncHandler(async (req, res) => {
     const players = await Player.findAll({
       order: ["display_name"],
-      attributes: ["nba_id", "display_name", "image"],
     });
     res.send(players);
   })

@@ -1,10 +1,21 @@
 export type PlayerType = {
+  id: number;
   nba_id: number;
   display_name: string;
   image: string;
+  player_code: string;
+  off_rating: number;
+  def_rating: number;
+  ast_per_100: number;
+  two_pt_attempts: number;
+  two_pt_makes: number;
+  three_pt_attempts: number;
+  three_pt_makes: number;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
-enum ShotEnum {
+export enum ShotEnum {
   "3PT Field Goal",
   "2PT Field Goal",
 }
