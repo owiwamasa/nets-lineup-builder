@@ -22,8 +22,7 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Brooklyn Nets Li
 - Select up to 5 players to put into your lineup
 - Highlights a player individual statistics when mouse hovers
 
-<img src='./frontend/src/assets/playerSelector.png
-' width='500px' />
+<img src='./frontend/src/assets/playerSelector.png' width='500px' />
 <br />
 <br />
 
