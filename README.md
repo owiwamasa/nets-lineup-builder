@@ -105,19 +105,25 @@ npx sequelize-cli db:seed:all
 PORT=8000
 ```
 
-7. In the backed folder, start the backend by running in the terminal:
+7. In backend folder, create dist folder and files by running in the terminal:
+
+```
+npm run build
+```
+
+8. In the backend folder, start the backend by running in the terminal:
 
 ```
 npm run dev
 ```
 
-8. In the frontend folder, start the frontend by running in the terminal:
+9. In the frontend folder, start the frontend by running in the terminal:
 
 ```
 npm start
 ```
 
-9. In the browser, navigate to 'http://localhost:3000/'
+10. In the browser, navigate to 'http://localhost:3000/'
 
 <br />
 
