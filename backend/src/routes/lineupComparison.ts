@@ -1,23 +1,28 @@
-const express = require("express");
+import express, { Router, Request, Response } from "express";
+import { LeagueAverageType, LineupType, PlayerQueriedType } from "../models";
+import { asyncHandler, mathRound, calculateLineupComparison } from "../utils";
 const db = require("../../models");
-const {
-  asyncHandler,
-  mathRound,
-  calculateLineupComparison,
-} = require("../utils");
 const { Lineup, Player, LeagueAverage } = db;
 
-const router = express.Router();
+const lineupComparisonRouter: Router = express.Router();
 
-router.post(
+interface ReqBody {
+  playerIds: number[];
+}
+
+lineupComparisonRouter.post(
   "/",
-  asyncHandler(async (req, res) => {
-    const { playerIds } = req.body;
+  asyncHandler(async (req: Request, res: Response) => {
+    const { playerIds }: ReqBody = req.body;
     const lineupCode = playerIds.sort((a, b) => a - b).join("_");
-    let lineup = await Lineup.findOne({ where: { lineup_code: lineupCode } });
+    let lineup: LineupType = await Lineup.findOne({
+      where: { lineup_code: lineupCode },
+    });
 
     if (!lineup) {
-      const players = await Player.findAll({ where: { nba_id: playerIds } });
+      const players: PlayerQueriedType[] = await Player.findAll({
+        where: { nba_id: playerIds },
+      });
 
       let two_pt_makes_total = 0;
       let two_pt_attempts_total = 0;
@@ -37,7 +42,7 @@ router.post(
         ast_per_100_sum += player.dataValues.ast_per_100;
       });
 
-      const lineupData = {
+      const lineupData: LineupType = {
         lineup_code: lineupCode,
         efg_pct: mathRound(
           ((two_pt_makes_total + 1.5 * three_pt_makes_total) /
@@ -68,7 +73,7 @@ router.post(
       lineup = await Lineup.create(lineupData);
     }
 
-    const leagueAverage = await LeagueAverage.findOne({
+    const leagueAverage: LeagueAverageType = await LeagueAverage.findOne({
       order: [["id", "DESC"]],
     });
 
@@ -76,4 +81,4 @@ router.post(
   })
 );
 
-module.exports = router;
+export default lineupComparisonRouter;

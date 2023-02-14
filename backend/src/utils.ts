@@ -1,15 +1,21 @@
-const asyncHandler = (handler) => {
-  return (req, res, next) => {
+import { Request, Response } from "express";
+import { LineupType, LeagueAverageType, LineupComparisonType } from "./models";
+
+export const asyncHandler = (handler: Function) => {
+  return (req: Request, res: Response, next) => {
     return handler(req, res, next).catch(next);
   };
 };
 
-const mathRound = (value, precision) => {
+export const mathRound = (value: number, precision: number): number => {
   const multiplier = Math.pow(10, precision);
   return Math.round(value * multiplier) / multiplier;
 };
 
-const calculateLineupComparison = (lineup, leagueAverage) => {
+export const calculateLineupComparison = (
+  lineup: LineupType,
+  leagueAverage: LeagueAverageType
+): LineupComparisonType[] => {
   return [
     {
       name: "FG%",
@@ -72,10 +78,4 @@ const calculateLineupComparison = (lineup, leagueAverage) => {
       ),
     },
   ];
-};
-
-module.exports = {
-  asyncHandler,
-  mathRound,
-  calculateLineupComparison,
 };
