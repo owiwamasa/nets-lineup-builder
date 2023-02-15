@@ -63,7 +63,7 @@ const LineupComparisonChart = ({ selectedPlayers }: Props) => {
     if (selectedPlayers) {
       const playerIds = selectedPlayers.map((player) => player.nba_id);
       axios
-        .post("http://localhost:8000/lineupComparison", { playerIds })
+        .post(`${process.env.BACKEND_URL}/lineupComparison`, { playerIds })
         .then((res) => {
           setChartData(res.data);
         });

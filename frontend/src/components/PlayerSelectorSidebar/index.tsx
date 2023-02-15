@@ -93,7 +93,7 @@ const PlayerSelectorSidebar = ({
   const [highlightedPlayer, setHighlightedPlayer] = useState<PlayerType>();
 
   useEffect(() => {
-    axios.get("http://localhost:8000/players").then((res) => {
+    axios.get(`${process.env.BACKEND_URL}/players`).then((res) => {
       setPlayers(res.data);
       setHighlightedPlayer(res.data[0]);
     });
