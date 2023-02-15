@@ -8,7 +8,7 @@
 
 The Brooklyn Nets Lineup Evaluator allows users to create a lineup from the 2021-22 Nets' roster, visualize the lineup's shooting ability per location on the court, and compare their projected statistics to the league average. It was built using React.js, Express, TypeScript, JavaScript, D3, Recharts, and Material UI.
 
-View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Brooklyn Nets Lineup Evaluator</a>
+View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
 
 <br />
 
@@ -22,7 +22,7 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Brooklyn Nets Li
 - Select up to 5 players to put into your lineup
 - Highlights a player individual statistics when mouse hovers
 
-<img src='./frontend/src/assets/playerSelector.png' width='500px' />
+<img src='./frontend/src/assets/playerSelector.png' width='300px' />
 <br />
 <br />
 
@@ -46,6 +46,13 @@ View live: <a href='https://hullabaloo-podcasts.herokuapp.com/'>Brooklyn Nets Li
 - Custom Tooltip shows on mouse hover and displays more detailed data, created using Recharts React library
 
 <img src='./frontend/src/assets/projectedLineupStatistics.png' width='500px' />
+<br />
+<br />
+
+## System Design
+
+<img src='./frontend/src/assets/nets-lineup-builder-architecture.png'>
+<a href='https://excalidraw.com/#json=3ct2yZcCkwp0Rq2dWTcx6,Z0SgtmPXRO6M44ausVHuXw'>View System Design in Excalidraw</a>
 <br />
 <br />
 
