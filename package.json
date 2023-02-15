@@ -4,7 +4,9 @@
   "description": "<br /> <p align='center'>   <img src='./frontend/src/assets/netsLogo.png' width='250px' > </p> <br />",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run postinstall-server",
+    "postinstall-server": "cd backend && npm install"
   },
   "repository": {
     "type": "git",
