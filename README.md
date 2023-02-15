@@ -8,7 +8,7 @@
 
 The Brooklyn Nets Lineup Evaluator allows users to create a lineup from the 2021-22 Nets' roster, visualize the lineup's shooting ability per location on the court, and compare their projected statistics to the league average. It was built using React.js, Express, TypeScript, JavaScript, D3, Recharts, and Material UI.
 
-View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
+View live: <a href='https://brooklyn-nets-lineup-evaluator.up.railway.app'>Brooklyn Nets Lineup Evaluator</a>
 
 <br />
 
