@@ -106,13 +106,13 @@ npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
 ```
 
-6. In the backend folder, create .env file with the following code:
+6. In the backend folder, create a .env file with the following code:
 
 ```
 PORT=8000
 ```
 
-7. In backend folder, create dist folder and files by running in the terminal:
+7. In backend folder, run this command in the terminal to generate a dist folder and files:
 
 ```
 npm run build
@@ -124,13 +124,19 @@ npm run build
 npm run dev
 ```
 
-9. In the frontend folder, start the frontend by running in the terminal:
+9. In the frontend folder, create a .env file with the following code:
+
+```
+BACKEND_URL=http://localhost:8000
+```
+
+10. In the frontend folder, start the frontend by running in the terminal:
 
 ```
 npm start
 ```
 
-10. In the browser, navigate to 'http://localhost:3000/'
+11. In the browser, navigate to http://localhost:3000/
 
 <br />
 
