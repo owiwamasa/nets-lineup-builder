@@ -1,0 +1,19 @@
+{
+  "name": "nets-project",
+  "version": "1.0.0",
+  "description": "<br /> <p align='center'>   <img src='./frontend/src/assets/netsLogo.png' width='250px' > </p> <br />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owiwamasa/nets-lineup-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owiwamasa/nets-lineup-builder/issues"
+  },
+  "homepage": "https://github.com/owiwamasa/nets-lineup-builder#readme"
+}
