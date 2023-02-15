@@ -20,7 +20,7 @@ View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
 
 - Features the Brooklyn Nets' 2021-22 Roster
 - Select up to 5 players to put into your lineup
-- Highlights a player individual statistics when mouse hovers
+- Highlights a player individual statistics when mouse hovers over a player
 
 <img src='./frontend/src/assets/playerSelector.png' width='300px' />
 <br />
@@ -30,7 +30,7 @@ View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
 
 - Data from NBA Stats API
 - Includes over 7,000 shots taken by Nets' players during the 2021-22 Regular Season
-- Calculates Points per Shot Attempt for selected players in lineup, within a given location on the court
+- Calculates Points per Shot Attempt for selected players in lineup (within a given location on the court)
 - Displays calculated data using D3 and D3-hexbin JavaScript libraries
 
 <img src='./frontend/src/assets/lineupShotChart.png' width='500px' />
@@ -43,7 +43,7 @@ View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
 - Calculates selected lineup's Field Goal%, 3-point%, Effective Field Goal%, Assists per 100 Possessions, Offensive Rating, and Defensive Rating using data from the Nets' 2021-22 Regular Season
 - Compares these statistics to the League Average from the 2021-22 NBA Regular Season
 - Displays Projected Lineup Statistics compared to the League Average in a bar chart, created with Recharts React library
-- Custom Tooltip shows on mouse hover and displays more detailed data, created using Recharts React library
+- Custom Tooltip shows when mouse hovers the bar chart and displays more detailed data for a particular statistic, created using Recharts React library
 
 <img src='./frontend/src/assets/projectedLineupStatistics.png' width='500px' />
 <br />
