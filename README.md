@@ -76,7 +76,7 @@ View live: <a href=''>Brooklyn Nets Lineup Evaluator</a>
 
 ## Installation
 
-1. In the backed folder, run in the terminal:
+1. In the backend folder, run in the terminal:
 
 ```
 npm install
@@ -88,19 +88,19 @@ npm install
 npm install
 ```
 
-3. In the backed folder, create the database by running in the terminal:
+3. In the backend folder, create the database by running in the terminal:
 
 ```
 npx sequelize-cli db:create
 ```
 
-4. In the backed folder, migrate tables to the database by running in the terminal:
+4. In the backend folder, migrate tables to the database by running in the terminal:
 
 ```
 npx sequelize-cli db:migrate
 ```
 
-5. In the backed folder, seed the database by running in the terminal:
+5. In the backend folder, seed the database by running in the terminal:
 
 ```
 npx sequelize-cli db:seed:all
