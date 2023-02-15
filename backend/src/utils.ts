@@ -71,7 +71,7 @@ export const calculateLineupComparison = (
       leagueAverage: leagueAverage.def_rating,
       projectedLineupStats: lineup.def_rating,
       percentageComparedToLeagueAverage: mathRound(
-        ((lineup.def_rating - leagueAverage.def_rating) /
+        ((leagueAverage.def_rating - lineup.def_rating) /
           leagueAverage.def_rating) *
           100,
         1

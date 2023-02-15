@@ -52,7 +52,7 @@ var calculateLineupComparison = function (lineup, leagueAverage) {
             name: "Def Rating",
             leagueAverage: leagueAverage.def_rating,
             projectedLineupStats: lineup.def_rating,
-            percentageComparedToLeagueAverage: (0, exports.mathRound)(((lineup.def_rating - leagueAverage.def_rating) /
+            percentageComparedToLeagueAverage: (0, exports.mathRound)(((leagueAverage.def_rating - lineup.def_rating) /
                 leagueAverage.def_rating) *
                 100, 1),
         },
