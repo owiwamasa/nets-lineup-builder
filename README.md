@@ -127,7 +127,7 @@ npm run dev
 9. In the frontend folder, create a .env file with the following code:
 
 ```
-BACKEND_URL=http://localhost:8000
+REACT_APP_BACKEND_URL=http://localhost:8000
 ```
 
 10. In the frontend folder, start the frontend by running in the terminal:

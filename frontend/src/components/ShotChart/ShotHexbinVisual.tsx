@@ -15,12 +15,12 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
   useEffect(() => {
     const playerIds = selectedPlayers.map((player) => player.nba_id);
     axios
-      .post(`${process.env.BACKEND_URL}/shots`, { playerIds })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/shots`, { playerIds })
       .then((res) => {
         setShots(res.data);
       });
   }, [selectedPlayers]);
-
+  console.log(process.env.REACT_APP_BACKEND_URL);
   const svgRef = useRef();
   useEffect(() => {
     if (shots) {

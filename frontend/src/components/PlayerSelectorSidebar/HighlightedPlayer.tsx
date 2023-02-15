@@ -82,7 +82,7 @@ const HighlightedPlayer = ({ highlightedPlayer }: Props) => {
       </PlayerImageNameContainer>
       <StatsContainer>
         {mapHighlightedPlayerStats.map((stat) => (
-          <IndividualStat>
+          <IndividualStat key={stat.name}>
             <Typography sx={{ color: "white", fontSize: "12px" }}>
               {stat.name}
             </Typography>
