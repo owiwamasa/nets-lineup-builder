@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/owiwamasa/nets-lineup-builder/issues"
   },
-  "homepage": "https://github.com/owiwamasa/nets-lineup-builder#readme"
+  "homepage": "https://github.com/owiwamasa/nets-lineup-builder#readme",
+  "dependencies": {
+    "sequelize-cli": "^6.6.0"
+  }
 }
