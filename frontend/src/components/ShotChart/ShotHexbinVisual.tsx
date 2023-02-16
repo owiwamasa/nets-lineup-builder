@@ -20,7 +20,7 @@ const ShotHexbinVisual = ({ selectedPlayers }: Props) => {
         setShots(res.data);
       });
   }, [selectedPlayers]);
-  console.log(process.env.REACT_APP_BACKEND_URL);
+
   const svgRef = useRef();
   useEffect(() => {
     if (shots) {
