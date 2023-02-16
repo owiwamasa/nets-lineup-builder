@@ -6,7 +6,7 @@
 
 # Brooklyn Nets Lineup Evaluator
 
-The Brooklyn Nets Lineup Evaluator allows users to create a lineup from the 2021-22 Nets' roster, visualize the lineup's shooting ability per location on the court, and compare their projected statistics to the league average. It was built using React.js, Express, TypeScript, JavaScript, D3, Recharts, and Material UI.
+The Brooklyn Nets Lineup Evaluator allows users to create a lineup from the 2021-22 Nets' roster, visualize the lineup's shooting ability per location on the court, and compare their projected statistics to the league average. Built using React.js, Express, TypeScript, JavaScript, D3, Recharts, and Material UI.
 
 View live: <a href='https://brooklyn-nets-lineup-evaluator.vercel.app/'>Brooklyn Nets Lineup Evaluator</a>
 
@@ -28,10 +28,10 @@ View live: <a href='https://brooklyn-nets-lineup-evaluator.vercel.app/'>Brooklyn
 
 ### 2) Lineup Shot Chart
 
-- Data from NBA Stats API
+- Data taken from NBA Stats API
 - Includes over 7,000 shots taken by Nets' players during the 2021-22 Regular Season
 - Calculates Points per Shot Attempt for selected players in lineup (within a given location on the court)
-- Displays calculated data using D3 and D3-hexbin JavaScript libraries
+- Displays Points per Shot Attempt data using D3 and D3-hexbin JavaScript libraries
 
 <img src='./frontend/src/assets/lineupShotChart.png' width='500px' />
 <br />
@@ -39,11 +39,11 @@ View live: <a href='https://brooklyn-nets-lineup-evaluator.vercel.app/'>Brooklyn
 
 ### 3) Projected Lineup Statistics
 
-- Data from NBA Stats API and Basketball Reference
-- Calculates selected lineup's Field Goal%, 3-point%, Effective Field Goal%, Assists per 100 Possessions, Offensive Rating, and Defensive Rating using data from the Nets' 2021-22 Regular Season
+- Data taken from NBA Stats API and Basketball Reference
+- Calculates a selected lineup's Field Goal%, 3-point%, Effective Field Goal%, Assists per 100 Possessions, Offensive Rating, and Defensive Rating using data from the Nets' 2021-22 Regular Season
 - Compares these statistics to the League Average from the 2021-22 NBA Regular Season
-- Displays Projected Lineup Statistics compared to the League Average in a bar chart, created with Recharts React library
-- Custom Tooltip shows when mouse hovers the bar chart and displays more detailed data for a particular statistic, created using Recharts React library
+- Displays the Projected Lineup Statistics compared to the League Average in a bar chart, created with Recharts React library
+- Custom Tooltip shows when mouse hovers the bar chart and displays more detailed data on a particular statistic, created using Recharts React library
 
 <img src='./frontend/src/assets/projectedLineupStatistics.png' width='500px' />
 <br />
