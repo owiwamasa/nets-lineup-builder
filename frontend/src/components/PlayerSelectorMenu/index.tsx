@@ -1,34 +1,12 @@
 import React from "react";
-import { Box } from "@mui/material";
 import { PlayerType } from "../../models";
 import netsLogo from "../../assets/netsLogo.png";
-import { styled } from "@mui/system";
 import HighlightedPlayer from "./HighlightedPlayer";
-import { theme } from "../../utils";
 import PlayerScrollMenu from "./PlayerScrollMenu";
-
-const PlayerSelectorSidebarContainer = styled(Box)(() => ({
-  backgroundColor: "#262626",
-  width: "30%",
-  height: "100vh",
-  position: "sticky",
-  top: 0,
-  [theme.breakpoints.down("xl")]: {
-    display: "none",
-    width: "400px",
-    position: "absolute",
-    left: 0,
-  },
-}));
-
-const LogoContainer = styled(Box)(() => ({
-  borderBottom: "2px solid white",
-  boxSizing: "border-box",
-  height: "15%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-}));
+import {
+  PlayerSelectorSidebarContainer,
+  LogoContainer,
+} from "./styledComponents";
 
 interface Props {
   selectedPlayers: PlayerType[];

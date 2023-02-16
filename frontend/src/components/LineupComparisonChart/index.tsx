@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import { styled } from "@mui/system";
 import axios from "axios";
 import {
   BarChart,
@@ -14,47 +13,16 @@ import {
 import { PlayerType, LineupComparisonType } from "../../models";
 import CustomBarLabel from "./CustomBarLabel";
 import CustomToolTip from "./CustomToolTip";
-import { InfoText } from "../ShotChart";
-import { CircularImageContainer } from "../PlayerSelectorMenu/PlayerScrollMenu";
-import { theme } from "../../utils";
+import { InfoText } from "../ShotChart/styledComponents";
+import { CircularImageContainer } from "../PlayerSelectorMenu/styledComponents";
+import {
+  LineupComparisonContainer,
+  ChartTitle,
+  ChartContainer,
+  LineupContainer,
+  PlayerContainer,
+} from "./styledComponents";
 
-const LineupComparisonContainer = styled(Box)(() => ({
-  display: "flex",
-  flexDirection: "column",
-  width: "966px",
-  [theme.breakpoints.up("xl")]: {
-    alignSelf: "center",
-  },
-}));
-
-const ChartTitle = styled(Typography)(() => ({
-  color: "white",
-  fontFamily: "Arial",
-  fontSize: "30px",
-  marginTop: "30px",
-}));
-
-const ChartContainer = styled(Box)(() => ({
-  width: "100%",
-  marginTop: "16px",
-  border: "1px solid #FFFFFF",
-  borderRadius: "20px",
-  padding: "40px 40px",
-  boxSizing: "border-box",
-}));
-
-const LineupContainer = styled(Box)(() => ({
-  display: "flex",
-  justifyContent: "space-around",
-  width: "850",
-  marginBottom: "30px",
-}));
-
-const PlayerContainer = styled(Box)(() => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-}));
 interface Props {
   selectedPlayers: PlayerType[];
 }

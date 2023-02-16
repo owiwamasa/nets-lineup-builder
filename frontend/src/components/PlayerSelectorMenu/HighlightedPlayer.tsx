@@ -1,48 +1,14 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Typography } from "@mui/material";
 import { PlayerType } from "../../models";
 import { calculateFgPct, calculate3ptPct, calculateEfgPct } from "../../utils";
-
-const HighlightedPlayerContainer = styled(Box)(() => ({
-  backgroundColor: "#4E4E4E",
-  height: "27%",
-  minHeight: "250px",
-  boxSizing: "border-box",
-  padding: "16px 40px 8px",
-  borderBottom: "2px solid white",
-  display: "flex",
-  flexDirection: "column",
-}));
-
-const PlayerImageNameContainer = styled(Box)(() => ({
-  display: "flex",
-  justifyContent: "space-around",
-  borderBottom: "2px solid white",
-  padding: "0 20px",
-}));
-
-const PlayerName = styled(Typography)(() => ({
-  color: "white",
-  fontSize: "24px",
-  marginTop: "16px",
-  alignSelf: "center",
-  fontWeight: 700,
-}));
-
-const StatsContainer = styled(Box)(() => ({
-  display: "flex",
-  flexWrap: "wrap",
-  paddingTop: "16px",
-}));
-
-const IndividualStat = styled(Box)(() => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  width: "33%",
-  paddingBottom: "8px",
-}));
+import {
+  HighlightedPlayerContainer,
+  PlayerImageNameContainer,
+  PlayerName,
+  StatsContainer,
+  IndividualStat,
+} from "./styledComponents";
 
 interface Props {
   highlightedPlayer: PlayerType;

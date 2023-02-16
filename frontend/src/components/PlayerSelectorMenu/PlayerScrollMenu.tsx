@@ -1,75 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { styled } from "@mui/system";
 import axios from "axios";
 import { PlayerType } from "../../models";
 import CloseIcon from "@mui/icons-material/Close";
-
-interface StyledComponentProps {
-  showModal: boolean;
-}
-
-const MenuContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "showModal",
-})(({ showModal }: StyledComponentProps) => ({
-  height: showModal ? "90%" : "58%",
-}));
-
-const MenuTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== "showModal",
-})(({ showModal }: StyledComponentProps) => ({
-  color: "white",
-  fontFamily: "Arial",
-  fontSize: "30px",
-  boxSizing: "border-box",
-  height: showModal ? "auto" : "15%",
-  padding: "20px 0 0 65px",
-  marginBottom: showModal ? "10px" : "0",
-}));
-
-const PlayerScrollContainer = styled(Box)(() => ({
-  height: "85%",
-  boxSizing: "border-box",
-  paddingBottom: "30px",
-  overflowY: "scroll",
-}));
-
-const PlayerSelectButton = styled(Button)(() => ({
-  padding: "12px 40px",
-  width: "100%",
-  display: "flex",
-  justifyContent: "space-between",
-  "&:hover": {
-    backgroundColor: "#4E4E4E",
-  },
-}));
-
-const ButtonContentContainer = styled(Box)(() => ({
-  display: "flex",
-  alignItems: "center",
-}));
-
-export const CircularImageContainer = styled(Box)(() => ({
-  borderRadius: "50%",
-  width: "55px",
-  height: "55px",
-  backgroundColor: "white",
-  overflow: "hidden",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "flex-end",
-}));
-
-const PlayerName = styled(Typography)(() => ({
-  color: "white",
-  textTransform: "capitalize",
-  fontFamily: "Arial",
-  fontSize: "26px",
-  whiteSpace: "nowrap",
-  marginLeft: "30px",
-}));
+import {
+  MenuContainer,
+  MenuTitle,
+  PlayerScrollContainer,
+  PlayerSelectButton,
+  ButtonContentContainer,
+  CircularImageContainer,
+  ScrollBarPlayerName,
+} from "./styledComponents";
 
 interface Props {
   selectedPlayers: PlayerType[];
@@ -149,7 +92,7 @@ const PlayerScrollMenu = ({
                     height="auto"
                   />
                 </CircularImageContainer>
-                <PlayerName>{player.display_name}</PlayerName>
+                <ScrollBarPlayerName>{player.display_name}</ScrollBarPlayerName>
               </ButtonContentContainer>
               {selectedPlayers.some(
                 (selectedPlayer) => selectedPlayer.nba_id === player.nba_id
