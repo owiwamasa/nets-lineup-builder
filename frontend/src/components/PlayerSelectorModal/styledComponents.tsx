@@ -2,13 +2,7 @@ import { styled } from "@mui/system";
 import { Modal, ModalProps, Button } from "@mui/material";
 import { theme } from "../../utils";
 
-interface StyledModalProps extends ModalProps {
-  children?: any;
-}
-
-export const StyledModal = styled(Modal, {
-  shouldForwardProp: (prop) => prop !== "children",
-})(({ children }: StyledModalProps) => ({
+export const StyledModal = styled(Modal)<ModalProps>(() => ({
   borderRadius: "20px",
   backgroundColor: "lightgray",
   position: "absolute",

@@ -28,7 +28,7 @@ View live: <a href='https://brooklyn-nets-lineup-evaluator.vercel.app/'>Brooklyn
 
 ### 2) Lineup Shot Chart
 
-- Data taken from NBA Stats API
+- Data taken from NBA Shots DB
 - Includes over 7,000 shots taken by Nets' players during the 2021-22 Regular Season
 - Calculates Points per Shot Attempt for selected players in lineup (within a given location on the court)
 - Displays Points per Shot Attempt data using D3 and D3-hexbin JavaScript libraries
@@ -39,7 +39,7 @@ View live: <a href='https://brooklyn-nets-lineup-evaluator.vercel.app/'>Brooklyn
 
 ### 3) Projected Lineup Statistics
 
-- Data taken from NBA Stats API and Basketball Reference
+- Data taken from NBA Shots DB and Basketball Reference
 - Calculates a selected lineup's Field Goal%, 3-point%, Effective Field Goal%, Assists per 100 Possessions, Offensive Rating, and Defensive Rating using data from the Nets' 2021-22 Regular Season
 - Compares these statistics to the League Average from the 2021-22 NBA Regular Season
 - Displays the Projected Lineup Statistics compared to the League Average in a bar chart, created with Recharts React library

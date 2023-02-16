@@ -21,15 +21,13 @@ const PlayerSelectorModal = ({
 }: Props) => {
   return (
     <StyledModal open={showModal} onClose={() => setShowModal(false)}>
-      <Box>
-        <PlayerScrollMenu
-          selectedPlayers={selectedPlayers}
-          setSelectedPlayers={setSelectedPlayers}
-          setHighlightedPlayer={setHighlightedPlayer}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-      </Box>
+      <PlayerScrollMenu
+        selectedPlayers={selectedPlayers}
+        setSelectedPlayers={setSelectedPlayers}
+        setHighlightedPlayer={setHighlightedPlayer}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </StyledModal>
   );
 };
