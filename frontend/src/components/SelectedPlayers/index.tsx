@@ -3,11 +3,15 @@ import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import ClearIcon from "@mui/icons-material/Clear";
 import { PlayerType } from "../../models";
+import { theme } from "../../utils";
 
 const SelectedPlayersContainer = styled(Box)(() => ({
   display: "flex",
   width: "100%",
   justifyContent: "space-between",
+  [theme.breakpoints.down("xl")]: {
+    width: "966px",
+  },
 }));
 
 const PlayerCard = styled(Box)(() => ({

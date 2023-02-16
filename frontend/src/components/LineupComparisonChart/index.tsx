@@ -15,13 +15,16 @@ import { PlayerType, LineupComparisonType } from "../../models";
 import CustomBarLabel from "./CustomBarLabel";
 import CustomToolTip from "./CustomToolTip";
 import { InfoText } from "../ShotChart";
-import { CircularImageContainer } from "../PlayerSelectorSidebar";
+import { CircularImageContainer } from "../PlayerSelectorMenu/PlayerScrollMenu";
+import { theme } from "../../utils";
 
 const LineupComparisonContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   width: "966px",
-  alignSelf: "center",
+  [theme.breakpoints.up("xl")]: {
+    alignSelf: "center",
+  },
 }));
 
 const ChartTitle = styled(Typography)(() => ({

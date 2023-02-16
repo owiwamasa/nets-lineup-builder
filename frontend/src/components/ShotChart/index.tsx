@@ -3,12 +3,15 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import ShotHexbinVisual from "./ShotHexbinVisual";
 import { PlayerType } from "../../models";
+import { theme } from "../../utils";
 
 const ShotChartContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   width: "966px",
-  alignSelf: "center",
+  [theme.breakpoints.up("xl")]: {
+    alignSelf: "center",
+  },
 }));
 
 const ShotChartTitle = styled(Typography)(() => ({
