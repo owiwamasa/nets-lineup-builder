@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "@mui/material";
 import { PlayerType } from "../../models";
 import PlayerScrollMenu from "../PlayerSelectorMenu/PlayerScrollMenu";
 import { StyledModal } from "./styledComponents";
