@@ -53,7 +53,7 @@ const HighlightedPlayer = ({ highlightedPlayer }: Props) => {
               {stat.name}
             </Typography>
             <Typography sx={{ color: "white", fontSize: "24px" }}>
-              {stat.data}
+              {stat.data ? stat.data.toString() : "0"}
             </Typography>
           </IndividualStat>
         ))}

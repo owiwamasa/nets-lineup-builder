@@ -9,12 +9,15 @@ interface Props {
 export const ModalContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== "showModal",
 })(({ showModal }: Props) => ({
-  width: "100%",
+  width: "100vw",
   height: "100vh",
   position: "absolute",
   zIndex: 3,
   backgroundColor: "rgb(0, 0, 0, 0.8)",
   display: showModal ? "block" : "none",
+  [theme.breakpoints.down(1350)]: {
+    display: "none",
+  },
 }));
 
 export const StyledModal = styled(Modal)<ModalProps>(() => ({
@@ -27,6 +30,22 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+  [theme.breakpoints.down(1350)]: {
+    height: "80vh",
+    left: "20%",
+  },
+  [theme.breakpoints.down(1100)]: {
+    left: "25%",
+  },
+  [theme.breakpoints.down(900)]: {
+    left: "30%",
+  },
+  [theme.breakpoints.down(750)]: {
+    left: "35%",
+  },
+  [theme.breakpoints.down(550)]: {
+    left: "50%",
+  },
 }));
 
 export const StyledButton = styled(Button, {

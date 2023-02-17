@@ -92,6 +92,13 @@ export const PlayerScrollContainer = styled(Box)(() => ({
   boxSizing: "border-box",
   paddingBottom: "30px",
   overflowY: "scroll",
+  [theme.breakpoints.down("xl")]: {
+    height: "90%",
+    paddingBottom: "0",
+  },
+  [theme.breakpoints.down(1350)]: {
+    height: "95%",
+  },
 }));
 
 export const PlayerSelectButton = styled(Button)(() => ({
