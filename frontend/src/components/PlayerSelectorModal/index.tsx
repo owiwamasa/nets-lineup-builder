@@ -1,7 +1,7 @@
 import React from "react";
 import { PlayerType } from "../../models";
 import PlayerScrollMenu from "../PlayerSelectorMenu/PlayerScrollMenu";
-import { StyledModal } from "./styledComponents";
+import { StyledModal, ModalContainer } from "./styledComponents";
 
 interface Props {
   selectedPlayers: PlayerType[];
@@ -19,15 +19,17 @@ const PlayerSelectorModal = ({
   setHighlightedPlayer,
 }: Props) => {
   return (
-    <StyledModal open={showModal} onClose={() => setShowModal(false)}>
-      <PlayerScrollMenu
-        selectedPlayers={selectedPlayers}
-        setSelectedPlayers={setSelectedPlayers}
-        setHighlightedPlayer={setHighlightedPlayer}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
-    </StyledModal>
+    <ModalContainer showModal={showModal}>
+      <StyledModal open={showModal} onClose={() => setShowModal(false)}>
+        <PlayerScrollMenu
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+          setHighlightedPlayer={setHighlightedPlayer}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      </StyledModal>
+    </ModalContainer>
   );
 };
 

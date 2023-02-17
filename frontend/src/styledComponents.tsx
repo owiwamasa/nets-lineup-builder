@@ -20,6 +20,13 @@ export const MainContentContainer = styled(Box)(() => ({
     alignItems: "flex-start",
     width: "80%",
   },
+  [theme.breakpoints.down("md")]: {
+    alignItems: "flex-start",
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "60px 0",
+    margin: "0 10px",
+  },
 }));
 
 export const TitleContainer = styled(Box)(() => ({

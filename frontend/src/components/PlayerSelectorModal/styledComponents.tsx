@@ -1,6 +1,21 @@
 import { styled } from "@mui/system";
-import { Modal, ModalProps, Button } from "@mui/material";
+import { Modal, ModalProps, Button, Box } from "@mui/material";
 import { theme } from "../../utils";
+
+interface Props {
+  showModal: boolean;
+}
+
+export const ModalContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "showModal",
+})(({ showModal }: Props) => ({
+  width: "100%",
+  height: "100vh",
+  position: "absolute",
+  zIndex: 3,
+  backgroundColor: "rgb(0, 0, 0, 0.8)",
+  display: showModal ? "block" : "none",
+}));
 
 export const StyledModal = styled(Modal)<ModalProps>(() => ({
   borderRadius: "20px",
@@ -14,13 +29,9 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
   transform: "translate(-50%, -50%)",
 }));
 
-interface StyledButtonProps {
-  showModal: boolean;
-}
-
 export const StyledButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== "showModal",
-})(({ showModal }: StyledButtonProps) => ({
+})(({ showModal }: Props) => ({
   [theme.breakpoints.up("xl")]: {
     display: "none",
   },
