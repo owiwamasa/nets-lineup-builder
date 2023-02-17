@@ -3,7 +3,6 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import axios from "axios";
 import { PlayerType } from "../../models";
-import CloseIcon from "@mui/icons-material/Close";
 import {
   MenuContainer,
   MenuTitle,
@@ -36,7 +35,7 @@ const PlayerScrollMenu = ({
       setPlayers(res.data);
       setHighlightedPlayer(res.data[0]);
     });
-  }, []);
+  }, [setHighlightedPlayer]);
 
   const addOrRemoveSelectedPlayerIds = (player: PlayerType) => {
     if (
@@ -56,19 +55,6 @@ const PlayerScrollMenu = ({
   return (
     <MenuContainer showModal={showModal}>
       <MenuTitle showModal={showModal}>Add Players</MenuTitle>
-      <CloseIcon
-        onClick={() => setShowModal(false)}
-        sx={{
-          display: showModal ? "block" : "none",
-          position: "absolute",
-          top: 20,
-          right: 20,
-          color: "white",
-          "&:hover": {
-            cursor: "pointer",
-          },
-        }}
-      />
       <PlayerScrollContainer>
         {players &&
           players.map((player) => (

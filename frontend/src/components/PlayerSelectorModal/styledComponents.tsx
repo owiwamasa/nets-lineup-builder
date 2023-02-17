@@ -1,24 +1,6 @@
 import { styled } from "@mui/system";
-import { Modal, ModalProps, Button, Box } from "@mui/material";
+import { Modal, ModalProps, Button } from "@mui/material";
 import { theme } from "../../utils";
-
-interface Props {
-  showModal: boolean;
-}
-
-export const ModalContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "showModal",
-})(({ showModal }: Props) => ({
-  width: "100vw",
-  height: "100vh",
-  position: "absolute",
-  zIndex: 3,
-  backgroundColor: "rgb(0, 0, 0, 0.8)",
-  display: showModal ? "block" : "none",
-  [theme.breakpoints.down(1350)]: {
-    display: "none",
-  },
-}));
 
 export const StyledModal = styled(Modal)<ModalProps>(() => ({
   borderRadius: "20px",
@@ -30,15 +12,36 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+  "& .MuiBackdrop-root": {
+    width: "100vw",
+    height: "150vh",
+    position: "absolute",
+    backgroundColor: "rgb(0, 0, 0, 0.8)",
+    top: "-100%",
+    left: "-100%",
+  },
+  [theme.breakpoints.up("xl")]: {
+    display: "none",
+  },
   [theme.breakpoints.down(1350)]: {
     height: "80vh",
     left: "20%",
+    "& .MuiBackdrop-root": {
+      height: "150vh",
+      top: "-20%",
+      left: "-0%",
+    },
   },
   [theme.breakpoints.down(1100)]: {
     left: "25%",
   },
   [theme.breakpoints.down(900)]: {
     left: "30%",
+    "& .MuiBackdrop-root": {
+      width: "150vh",
+      top: "-20%",
+      left: "-20%",
+    },
   },
   [theme.breakpoints.down(750)]: {
     left: "35%",
@@ -47,6 +50,10 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
     left: "50%",
   },
 }));
+
+interface Props {
+  showModal: boolean;
+}
 
 export const StyledButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== "showModal",
