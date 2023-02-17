@@ -21,13 +21,13 @@ const PlayerSelectorModal = ({
   return (
     <ModalContainer showModal={showModal}>
       <StyledModal open={showModal} onClose={() => setShowModal(false)}>
-        <PlayerScrollMenu
-          selectedPlayers={selectedPlayers}
-          setSelectedPlayers={setSelectedPlayers}
-          setHighlightedPlayer={setHighlightedPlayer}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
+        {PlayerScrollMenu({
+          selectedPlayers,
+          setSelectedPlayers,
+          setHighlightedPlayer,
+          showModal,
+          setShowModal,
+        })}
       </StyledModal>
     </ModalContainer>
   );
