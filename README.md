@@ -88,55 +88,67 @@ npm install
 npm install
 ```
 
-3. In the backend folder, create the database by running in the terminal:
+3. In the terminal, open Postgres by running:
+
+```
+psql
+```
+
+4. In the terminal, create user by running:
+
+```
+CREATE USER netsadmin WITH PASSWORD password CREATEDB;
+```
+
+5. In the backend folder, create the database by running in the terminal:
 
 ```
 npx sequelize-cli db:create
 ```
 
-4. In the backend folder, migrate tables to the database by running in the terminal:
+6. In the backend folder, migrate tables to the database by running in the terminal:
 
 ```
 npx sequelize-cli db:migrate
 ```
 
-5. In the backend folder, seed the database by running in the terminal:
+7. In the backend folder, seed the database by running in the terminal:
 
 ```
 npx sequelize-cli db:seed:all
 ```
 
-6. In the backend folder, create a .env file with the following code:
+8. In the backend folder, create a .env file with the following code:
 
 ```
 PORT=8000
 ```
 
-7. In backend folder, run this command in the terminal to generate a dist folder and files:
+9. In backend folder, run this command in the terminal to generate a dist folder and files:
 
 ```
 npm run build
 ```
 
-8. In the backend folder, start the backend by running in the terminal:
+10. In the backend folder, start the backend by running in the terminal:
 
 ```
 npm run dev
 ```
 
-9. In the frontend folder, create a .env file with the following code:
+11. In the frontend folder, create a .env file with the following code:
 
 ```
 REACT_APP_BACKEND_URL=http://localhost:8000
 ```
 
-10. In the frontend folder, start the frontend by running in the terminal:
+12. In the frontend folder, start the frontend by running in the terminal:
 
 ```
 npm start
 ```
 
-11. In the browser, navigate to http://localhost:3000/
+13. In the browser, navigate to http://localhost:3000/
 
 <br />
 
