@@ -27,7 +27,6 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
     height: "80vh",
     left: "20%",
     "& .MuiBackdrop-root": {
-      height: "150vh",
       top: "-20%",
       left: "-0%",
     },
@@ -38,7 +37,8 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
   [theme.breakpoints.down(900)]: {
     left: "30%",
     "& .MuiBackdrop-root": {
-      width: "150vh",
+      height: "200vh",
+      width: "300vw",
       top: "-20%",
       left: "-20%",
     },
@@ -47,6 +47,9 @@ export const StyledModal = styled(Modal)<ModalProps>(() => ({
     left: "35%",
   },
   [theme.breakpoints.down(550)]: {
+    "& .MuiBackdrop-root": {
+      height: "200vh",
+    },
     left: "50%",
   },
 }));
