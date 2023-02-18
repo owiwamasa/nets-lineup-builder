@@ -97,7 +97,7 @@ psql
 4. In the terminal, create user by running:
 
 ```
-CREATE USER netsadmin WITH PASSWORD password CREATEDB;
+CREATE USER netsadmin WITH PASSWORD 'password' CREATEDB;
 ```
 
 5. In the backend folder, create the database by running in the terminal:
